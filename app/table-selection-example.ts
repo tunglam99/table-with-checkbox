@@ -57,7 +57,12 @@ export class TableSelectionExample implements OnInit {
     this.selectedAll =
       this.dataSource.data.filter((x) => x.isSelected).length ==
       this.dataSource.data.length;
-    this.indeterminate = !this.selectedAll
+      const dataDeletes = this.dataSource.data.filter((x) => x.isSelected);
+      if (dataDeletes.length < this.dataSource.data.length) {
+        this.indeterminate = true;
+      } else {
+        this.indeterminate = false;
+      }
     
   }
 
@@ -67,6 +72,12 @@ export class TableSelectionExample implements OnInit {
     } else {
       this.dataSource.data.map((x) => (x.isSelected = false));
     }
+    const dataDeletes = this.dataSource.data.filter((x) => x.isSelected);
+      if (dataDeletes.length < this.dataSource.data.length) {
+        this.indeterminate = true;
+      } else {
+        this.indeterminate = false;
+      }
   }
 
   delete() {
