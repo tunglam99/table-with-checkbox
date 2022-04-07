@@ -69,12 +69,12 @@ export class TableSelectionExample implements OnInit {
     } else {
       this.dataSource.data.map((x) => (x.isSelected = false));
     }
-    const dataDeletes = this.dataSource.data.filter((x) => x.isSelected);
-      if (dataDeletes.length < this.dataSource.data.length) {
-        this.indeterminate = true;
-      } else {
-        this.indeterminate = false;
-      }
+    // const dataDeletes = this.dataSource.data.filter((x) => x.isSelected);
+    //   if (dataDeletes.length < this.dataSource.data.length) {
+    //     this.indeterminate = true;
+    //   } else {
+    //     this.indeterminate = false;
+    //   }
   }
 
   delete() {
