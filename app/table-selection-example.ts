@@ -54,16 +54,13 @@ export class TableSelectionExample implements OnInit {
     this.dataSource.data = data;
   }
   changeDataStay(item: any) {
-    this.selectedAll =
-      this.dataSource.data.filter((x) => x.isSelected).length ==
-      this.dataSource.data.length;
-      const dataDeletes = this.dataSource.data.filter((x) => x.isSelected);
-      if (dataDeletes.length < this.dataSource.data.length) {
-        this.indeterminate = true;
-      } else {
-        this.indeterminate = false;
-      }
-    
+    if (this.dataSource.data.every((x) => x.isSelected)) {
+      this.selectedAll = true;
+      this.indeterminate = false;
+    } else {
+      this.selectedAll = false;
+      this.indeterminate = this.dataSource.data.some((x) => x.isSelected);
+    }
   }
 
   onSelectedAll() {
