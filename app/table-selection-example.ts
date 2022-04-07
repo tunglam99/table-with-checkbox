@@ -43,6 +43,7 @@ export class TableSelectionExample implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
   selectedAll = false;
+  indeterminate = false;
   ngOnInit(): void {
     const data = this.dataSource.data.map((x) => {
       return {
@@ -57,6 +58,11 @@ export class TableSelectionExample implements OnInit {
       this.dataSource.data.filter((x) => x.isSelected).length ==
       this.dataSource.data.length;
     console.log(this.dataSource.data);
+    if (this.selectedAll) {
+      this.indeterminate = false;
+    } else {
+      this.indeterminate = true;
+    }
   }
 
   onSelectedAll() {

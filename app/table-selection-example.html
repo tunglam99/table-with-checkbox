@@ -3,7 +3,7 @@
   <!-- Checkbox Column -->
   <ng-container matColumnDef="select">
     <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox (change)="onSelectedAll()" [(ngModel)]="selectedAll">
+      <mat-checkbox [indeterminate]="indeterminate" (change)="onSelectedAll()" [(ngModel)]="selectedAll">
       </mat-checkbox>
     </th>
     <td mat-cell *matCellDef="let row">
