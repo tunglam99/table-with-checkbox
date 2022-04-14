@@ -7,7 +7,7 @@
       </mat-checkbox>
     </th>
     <td mat-cell *matCellDef="let row">
-      <mat-checkbox [(ngModel)]="row.isSelected" (change)="changeDataStay(row)">
+      <mat-checkbox [disabled] = "row.name ==='abc'" [(ngModel)]="row.isSelected" (change)="changeDataStay(row)">
       </mat-checkbox>
     </td>
   </ng-container>
